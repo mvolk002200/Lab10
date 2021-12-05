@@ -79,8 +79,27 @@ namespace Lab10Starter
         private void CelebrateVictory(Player victor)
         {
             MessageBox.Show(Application.Current.MainWindow, String.Format("Congratulations, {0}, you're the big winner today", victor.ToString()));
-            XScoreLBL.Content = String.Format("X's Score: {0}", ticTacToe.XScore);
-            OScoreLBL.Content = String.Format("O's Score: {0}", ticTacToe.OScore);
+
+            if((int)victor == 1)
+            {
+                XScoreLBL.Content = String.Format("X's Score: {0}", ticTacToe.XScore + 1);
+                OScoreLBL.Content = String.Format("O's Score: {0}", ticTacToe.OScore);
+            }
+            else if((int)victor == 0)
+            {
+                XScoreLBL.Content = String.Format("X's Score: {0}", ticTacToe.XScore);
+                OScoreLBL.Content = String.Format("O's Score: {0}", ticTacToe.OScore + 1);
+            }
+            else if((int)victor == 500)
+            {
+                XScoreLBL.Content = String.Format("X's Score: {0}", ticTacToe.XScore + 1);
+                OScoreLBL.Content = String.Format("O's Score: {0}", ticTacToe.OScore + 1);
+            }
+            else
+            {
+                XScoreLBL.Content = String.Format("X's Score: {0}", ticTacToe.XScore);
+                OScoreLBL.Content = String.Format("O's Score: {0}", ticTacToe.OScore);
+            }
 
             ResetGame();
         }
